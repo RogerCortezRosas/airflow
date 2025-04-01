@@ -16,14 +16,14 @@ class ETL_Platzi(BaseOperator):
             raise FileNotFoundError(f"File {path} does not exist")
 
         #Read json file
-        df = pd.read_json(path,lines=False)
+        df = pd.read_csv(path)
 
         #Check if the is not a duplicade rows and if there is aduplicated rows , drop them
         if df.duplicated().any():
             df = df.drop_duplicates()
 
 
-        return df    
+        return 'ETL PLatzi completado'   
 
 
 
